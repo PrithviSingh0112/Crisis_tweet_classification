@@ -32,5 +32,5 @@ A powerful text extraction and linguistic analysis tool that processes web artic
 ### Setup
 1. Clone the repository:
    ```bash
-   git clone https://github.com/PrithviSingh0112/text-analysis-pipeline.git
-   cd text-analysis-pipeline
+   https://github.com/PrithviSingh0112/Text_extraction_classification_analysis.git
+   cd Text_extraction_classification_analysis
