@@ -32,5 +32,5 @@ A powerful text extraction and linguistic analysis tool that processes web artic
 ### Setup
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/text-analysis-pipeline.git
+   git clone https://github.com/PrithviSingh0112/text-analysis-pipeline.git
    cd text-analysis-pipeline
