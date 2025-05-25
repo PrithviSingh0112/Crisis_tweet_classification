@@ -1,36 +1,113 @@
-# 📝 Text Analysis Pipeline
 
-![Python](https://img.shields.io/badge/python-3.7%2B-blue)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-![Last Commit](https://img.shields.io/github/last-commit/yourusername/text-analysis-pipeline)
-![Code Size](https://img.shields.io/github/languages/code-size/yourusername/text-analysis-pipeline)
+# Text Analysis Pipeline
 
-A powerful text extraction and linguistic analysis tool that processes web articles to provide comprehensive readability and sentiment metrics.
+This repository contains a Python-based pipeline for automated extraction and linguistic analysis of online articles. It performs sentiment, readability, and complexity analysis on text content sourced from URLs provided in an Excel sheet.
 
-## 🌟 Features
+## 📌 Author
+Prithvi Singh Dangas  
+🗓️ Date: May 2025
 
-- **Intelligent Web Scraping**:
-  - Clean article extraction preserving main content
-  - Automatic removal of ads, navigation, and other noise
-- **Advanced Text Analysis**:
-  - Sentiment scoring (positive/negative/polarity)
-  - Readability metrics (Fog Index, SMOG Index)
-  - Word complexity analysis
-  - Personal pronoun detection
-  - Syllable and character count statistics
-- **Enterprise Ready**:
-  - Robust error handling and logging
-  - Supports batch processing of URLs
-  - Progress tracking with visual indicators
+---
 
-## 📦 Installation
+## 🚀 Features
 
-### Prerequisites
-- Python 3.7 or higher
-- pip package manager
+- Automated article extraction from URLs
+- Sentiment analysis using custom dictionaries
+- Readability metrics including Fog Index, Syllable Count, etc.
+- Regex-based personal pronoun detection
+- Saves extracted articles as `.txt` files
+- Exports results to an Excel file
 
-### Setup
-1. Clone the repository:
-   ```bash
-   https://github.com/PrithviSingh0112/Text_extraction_classification_analysis.git
-   cd Text_extraction_classification_analysis
+---
+
+## 🗂️ Project Structure
+
+```
+Root/
+├── text_analysis.py
+├── requirements.txt
+├── Input.xlsx
+├── articles/               # Auto-created folder for saved articles
+├── StopWords/
+│   ├── StopWords_Auditor.txt
+│   ├── StopWords_Currencies.txt
+│   └── ...
+├── MasterDictionary/
+│   ├── positive-words.txt
+│   └── negative-words.txt
+└── final_output.xlsx       # Generated after script execution
+```
+
+---
+
+## 📥 Installation
+
+Make sure Python 3.8+ is installed.
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+## 🛠️ Usage
+
+Run the script with the required input and output file paths:
+
+```bash
+python text_analysis.py --input Input.xlsx --output final_output.xlsx
+```
+
+- `Input.xlsx`: Excel file with columns `URL_ID` and `URL`
+- `final_output.xlsx`: Excel file to save analysis results
+
+---
+
+## 📊 Metrics Computed
+
+| Metric                    | Description |
+|---------------------------|-------------|
+| POSITIVE SCORE            | Count of positive words |
+| NEGATIVE SCORE            | Count of negative words |
+| POLARITY SCORE            | (Pos - Neg) / (Pos + Neg + ε) |
+| SUBJECTIVITY SCORE        | (Pos + Neg) / Total Words |
+| AVG SENTENCE LENGTH       | Total Words / Sentence Count |
+| COMPLEX WORD COUNT        | Words with >2 syllables |
+| PERCENTAGE COMPLEX WORDS  | % of complex words |
+| FOG INDEX                 | 0.4 * (Avg Sentence Length + % Complex Words) |
+| SYLLABLE PER WORD         | Total Syllables / Words |
+| PERSONAL PRONOUNS         | Regex match for I, we, my, ours, etc. |
+| AVG WORD LENGTH           | Total Characters / Words |
+
+---
+
+## 🧱 Dependencies
+
+```
+pandas==1.3.5
+requests==2.26.0
+beautifulsoup4==4.10.0
+readability-lxml==0.8.1
+nltk==3.6.7
+textstat==0.7.0
+textblob==0.15.3
+tqdm==4.62.3
+charset-normalizer==2.0.12
+openpyxl==3.0.10
+python-docx==0.8.11
+```
+
+---
+
+## ⚠️ Error Handling
+
+- Network timeouts handled via try/except
+- Charset normalization for encoding issues
+- Empty or invalid content is skipped with warnings
+- All file I/O is wrapped with error-safe handling
+
+---
+
+## 📄 License
+
+This project is open for academic and non-commercial use. Attribution required.
